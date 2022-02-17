@@ -1,3 +1,4 @@
+/*Given input->"I have 36 books, 40 pens2.";output->"Ievah 36 skoob, 40 2snep."*/
 #include <iostream>
 #include<string>
 using  namespace std;
