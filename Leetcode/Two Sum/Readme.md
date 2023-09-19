@@ -10,17 +10,19 @@ You can return the answer in any order.
 
 - Input: nums = [2,7,11,15], target = 9
   Output: [0,1]
-  Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-  Example 2:
+  Explanation: Because nums[0] + nums[1] == 9, return [0, 1].
+
+#### Example 2:
 
 - Input: nums = [3,2,4], target = 6
   Output: [1,2]
-  Example 3:
+
+#### Example 3:
 
 - Input: nums = [3,3], target = 6
   Output: [0,1]
 
-Constraints:
+#### Constraints:
 
 2 <= nums.length <= 104
 -109 <= nums[i] <= 109
@@ -37,21 +39,23 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 
 你可以按任意顺序返回答案。
 
-示例 1：
+#### 示例 1：
 
-输入：nums = [2,7,11,15], target = 9
-输出：[0,1]
-解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
-示例 2：
+- 输入：nums = [2,7,11,15], target = 9
+  输出：[0,1]
+  解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
 
-输入：nums = [3,2,4], target = 6
-输出：[1,2]
-示例 3：
+#### 示例 2：
 
-输入：nums = [3,3], target = 6
-输出：[0,1]
+- 输入：nums = [3,2,4], target = 6
+  输出：[1,2]
 
-提示：
+#### 示例 3：
+
+- 输入：nums = [3,3], target = 6
+  输出：[0,1]
+
+#### 提示：
 
 2 <= nums.length <= 104
 -109 <= nums[i] <= 109
