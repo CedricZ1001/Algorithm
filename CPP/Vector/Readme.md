@@ -9,8 +9,8 @@
 
 ## Vector 的定义
 
-'''
+```
 Class template
 std::vector
 template <class T, class Alloc = allocator<T> > class vector;//generic template
-'''
+```
