@@ -82,3 +82,41 @@ vector<int> vec(&arr[1], &arr[4]); //将arr[1]~arr[4]范围内的元素作为vec
 | `emplace()`   | 在指定位置构造元素。                |
 | `emplace_back()`| 在容器末尾构造元素。              |
 
+# 具体使用方法
+```
+//push_back和pop_back用法简单
+vector<int> arr;
+for (int i = 0; i < 5; i++)
+{
+    arr.push_back(i);
+}
+for (int i = 0; i < 5; i++)
+{
+    arr.pop_back();
+}
+
+arr.emplace(10);
+
+//在arr的头部插入值为10的元素
+vector<int> arr;
+arr.insert(arr.begin(), 10);
+
+vector<int> arr{1, 2, 3, 4, 5};
+//删除arr开头往后偏移两个位置的元素，即arr的第三个元素，3
+arr.erase(arr.begin() + 2);
+//删除arr.begin()到arr.begin()+2之间的元素，删除两个;即删除arr.begin()而不到arr.begin()+2的元素
+arr.erase(arr.begin(), arr.begin() + 2);
+
+//将arr修改为范围[arrs.begin, arrs.end]内的元素
+vector<int> arr = {5, 4, 3, 2, 1};
+vector<int> arrs = { 1, 2, 3, 4, 5 };
+arr.assign(arrs.begin(), arrs.end());
+
+//扩容
+vector<int> arr;
+for (int i = 0; i < 20; i++)
+{
+    arr.push_back(i);
+    cout << arr.size() << " " << arr.capacity() << endl;
+}
+```
