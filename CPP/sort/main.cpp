@@ -1,4 +1,7 @@
 #include<iostream>
+#include<vector>
+#include<stack>
+using namespace std;
 void BublingSort(int* arr, int len)
 {
     if (len == 0)
@@ -135,22 +138,91 @@ void QuickSort(int *arr, int left, int right)
 }
 
 
+int partition(vector<int>& data,int l,int r)
+{
+	int x = data[r];	//基准
+	if(l >= r)
+		return l;
+	while(l < r){
+		while(l < r && data[l] < x){
+			l++;
+		}
+		if(l < r){
+			data[r] = data[l];
+			r--;
+		}
+		while(l < r && data[r] > x){
+			r--;
+		}
+		if(l < r){
+			data[l] = data[r];
+			l++;
+		}
+	}
+	data[l] = x;
+	return l;
+}
+
+int quickSortNorecusive(vector<int>& data,int l,int r)
+{
+	stack<int> st;
+	if(l < r)
+	{
+		int tmp = partition(data,l,r);
+		if(tmp-1 > l)	//左边不止一个元素
+		{
+			st.push(tmp-1);
+			st.push(l);
+		}
+		if(tmp+1 < r)
+		{
+			st.push(r);
+			st.push(tmp+1);
+		}
+		while(!st.empty()){
+			int start = st.top();
+			st.pop();
+			int end = st.top();
+			st.pop();
+			
+			int tmp = partition(data,start,end);
+		    if(tmp-1 > start)	//左边不止一个元素
+			{
+				st.push(tmp-1);
+				st.push(start);
+			}
+		    if(tmp+1 < end)
+			{
+				st.push(end);
+				st.push(tmp+1);
+			}
+		}
+	}
+}
+
 int main() {
-    int arr[]{ 4,5,3,7,1,9,8 };
+    vector<int> vec{4,5,3,7,1,9,8};
+    int arr[]{4,5,3,7,1,9,8};
     int length = sizeof(arr) / sizeof(arr[0]);
-    for (size_t i = 0; i < length; i++)
-    {
-        std::cout << arr[i] << ",";
-    }
-    std::cout << std::endl;
-    std::cout << "----------------" << std::endl;
+    // for (size_t i = 0; i < length; i++)
+    // {
+    //     std::cout << arr[i] << ",";
+    // }
+    // std::cout << std::endl;
+    // std::cout << "----------------" << std::endl;
     //BublingSort(arr, length);
     //SelectSort(arr, length);
     //InsertSort(arr, length);
-    QuickSort(arr, 0, 6);
-    for (size_t i = 0; i < length; i++)
-    {
-        std::cout << arr[i] << ",";
-    }
+    // quicksort(arr, 0, 6);
+    cout<<vec.size()<<endl;
+    quickSortNorecusive(vec,0,vec.size()-1);
+    // for (size_t i = 0; i < length; i++)
+    // {
+    //     std::cout << arr[i] << ",";
+    // }
+    for(auto &c : vec)
+		cout << c << " ";
+	cout << endl;
     return 0;
 }
+

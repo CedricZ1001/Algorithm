@@ -7,10 +7,41 @@
 - 因此，vector 占用了更多的存储空间，为了获得管理存储空间的能力，并且以一种有效的方式动态增长。
 - 与其它动态序列容器相比（deque, list and forward_list）， vector 在访问元素的时候更加高效，在末尾添加和删除元素相对高效。对于其它不在末尾的删除和插入操作，效率更低。比起 list 和 forward_list 统一的迭代器和引用更好。
 
-## Vector 的定义
+#### Vector 的定义
 
 ```
 Class template
 std::vector
 template <class T, class Alloc = allocator<T> > class vector;//generic template
 ```
+
+#### Vector 的初始化
+
+```
+#include<vector>
+vector<int> vec;		//声明一个int型向量
+vector<int> vec(5);		//声明一个初始大小为5的int向量
+vector<int> vec(10, 1);	//声明一个初始大小为10且值都是1的向量
+vector<int> vec(tmp);	//声明并用tmp向量初始化vec向量
+vector<int> tmp(vec.begin(), vec.begin() + 3);	//用向量vec的第0个到第2个值初始化tmp
+int arr[5] = {1, 2, 3, 4, 5};
+vector<int> vec(arr, arr + 5);		//将arr数组的元素用于初始化vec向量
+//说明：当然不包括arr[4]元素，末尾指针都是指结束元素的下一个元素，
+//这个主要是为了和vec.end()指针统一。
+vector<int> vec(&arr[1], &arr[4]); //将arr[1]~arr[4]范围内的元素作为vec的初始值
+//在创建好空容器的基础上，还可以通过调用 reserve() 成员函数来增加容器的容量：vec.reserve(20);
+```
+
+#### Vector 的方法
+
+- 迭代器(iterators)
+
+方法 功能描述
+| begin() | 返回指向容器中第一个元素的迭代器。 |
+| end() | 返回指向容器中最后一个元素之后的迭代器，不是最后一个元素。 |
+| rbegin() | 返回指向容器最后一个元素的反向迭代器。 |
+| rend() | 返回指向容器开头之前位置的反向迭代器。 |
+| cbegin() |返回指向容器中第一个元素的常量迭代器（只读）。 |
+| cend() | 返回指向容器最后一个元素之后位置的常量迭代器（只读）。 |
+| crbegin() |返回指向容器最后一个元素的常量反向迭代器（只读）。 |
+| crend() | 返回指向容器开头之前位置的常量反向迭代器（只读）。 |
