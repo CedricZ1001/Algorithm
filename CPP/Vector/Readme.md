@@ -120,3 +120,33 @@ for (int i = 0; i < 20; i++)
     cout << arr.size() << " " << arr.capacity() << endl;
 }
 ```
+## 遍历
+```
+vector<int>::iterator it;
+for (it = vec.begin(); it != vec.end(); it++)
+    cout << *it << endl;
+//或者
+for (size_t i = 0; i < vec.size(); i++) {
+	cout << vec.at(i) << endl;
+}
+```
+## 元素翻转
+```
+#include <algorithm>
+reverse(vec.begin(), vec.end());
+```
+
+## 元素排序
+```
+#include <algorithm>
+sort(vec.begin(), vec.end()); //采用的是从小到大的排序
+//如果想从大到小排序，可以采用上面反转函数，也可以采用下面方法:
+bool Comp(const int& a, const int& b) {
+	return a > b;
+}
+sort(vec.begin(), vec.end(), Comp);
+```
+## 适用场景
+- 需要频繁在末尾插入和删除元素，并且不需要在中间或头部插入删除。
+- 需要高效地进行随机访问，即通过索引访问元素。
+- 元素数量会动态变化，但不会经常在中间或头部插入删除。
