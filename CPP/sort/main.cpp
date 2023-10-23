@@ -115,10 +115,10 @@ void QuickSort(int *arr, int left, int right)
         {
             ++cur_left;
         }
-        //if(cur_left < cur_right)
-        //{
-        //    arr[cur_right--] = arr[cur_left];
-        //}
+        if(cur_left < cur_right)
+        {
+           arr[cur_right--] = arr[cur_left];
+        }
         //for (size_t i = 0; i < 7; i++)
         //{
         //    std::cout << arr[i] << " ";
