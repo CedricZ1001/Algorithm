@@ -1,0 +1,6 @@
+﻿  Factory.cpp
+  Factory.h
+  main.cpp
+  正在生成代码...
+x64\Debug\Factory.obj : warning LNK4042: 对象被多次指定；已忽略多余的指定
+  Cpp_Reflect.vcxproj -> D:\workspace\Cedric_Z1\Algorithm\CPP\mode\Factory\Cpp_Reflect\x64\Debug\Cpp_Reflect.exe

@@ -21,7 +21,6 @@ public:
         auto it = ms.find(number);
         return it == ms.end() || it->second.empty() ? -1 : *it->second.begin ();
     }
-
     
 };
 
